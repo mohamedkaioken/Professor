@@ -16,6 +16,7 @@ class _AddCourseState extends State<AddCourse> {
   final List<String> majors = ['Development','Design','Business'];
   String hours;
   String maxStudents;
+  String currentStudents;
 
   @override
   Widget build(BuildContext context) {
@@ -102,8 +103,8 @@ class _AddCourseState extends State<AddCourse> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () async {
-                      DatabaseService().addCourseData(title,description,_majors,hours,maxStudents);
-
+                      await DatabaseService().addCourseData(title,description,_majors,hours,maxStudents,0);
+                      Navigator.pop(context);
                     } ,
                   ),
                 ],

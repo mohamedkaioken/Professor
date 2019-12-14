@@ -4,6 +4,6 @@ class Course {
   final String majors;
   final String hours;
   final String maxStudents;
-
-  Course({this.title,this.description,this.majors,this.hours,this.maxStudents});
+  final int currentStudents;
+  Course({this.title,this.description,this.majors,this.hours,this.maxStudents, this.currentStudents});
 }
