@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:professor_app/models/courses.dart';
 import 'package:professor_app/screens/add_course.dart';
@@ -17,9 +18,11 @@ class CourseTile extends StatelessWidget {
             children: <Widget>[
               Text('${course.title}\n${course.description}\t ${course.currentStudents}/${course.maxStudents}'),
               RaisedButton(
-                child: Text('Enroll'),
+                child: Text('Delete'),
                 color: Colors.red,
-                onPressed: (){},
+                onPressed: (){
+                  Firestore.instance.collection("course").document(course.title).delete();
+                },
               ),
 
             ]
