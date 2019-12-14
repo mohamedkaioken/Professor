@@ -15,4 +15,25 @@ class DatabaseService {
       'hours': int.parse(hours),
     });
   }
+
+  List<Course> _courseData(QuerySnapshot snapshot)
+  {
+    return snapshot.documents.map((doc) {
+      return Course(
+        title: doc.data['title'] ?? '',
+        description: doc.data['description'] ?? '',
+        majors: doc.data['majors'] ?? '',
+        hours: doc.data['hours'] ?? 0,
+        maxStudents: doc.data['maxStudents'] ?? 0,
+        currentStudents: doc.data['currentStudents'] ?? 0,
+
+      );
+     }
+    ).toList();
+  }
+
+  Stream<List<Course>> get courses{
+    return courseCollection.snapshots().map(_courseData);
+  }
+
 }
