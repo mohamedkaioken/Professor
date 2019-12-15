@@ -11,20 +11,33 @@ class CourseTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+      padding: EdgeInsets.only(top: 8.0),
       child: Card(
+        color: Colors.grey[900],
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('${course.title}\n${course.description}\t ${course.currentStudents}/${course.maxStudents}'),
-              RaisedButton(
-                child: Text('Delete'),
-                color: Colors.red,
-                onPressed: (){
-                  Firestore.instance.collection("course").document(course.title).delete();
-                },
+              Text(
+                  'Name: ${course.title}\nDescription: ${course.description}\n'
+                      'Currently Enrolled: ${course.currentStudents}/${course.maxStudents}',
+                style: TextStyle(color: Colors.amberAccent),
               ),
-
+                  RaisedButton(
+                    child: Row(
+                        children: <Widget>[
+                          Text('Delete'),
+                          Icon(
+                            Icons.delete,
+                            color: Colors.black,
+                          )
+                        ]
+                    ),
+                    color: Colors.pink,
+                    onPressed: (){
+                      Firestore.instance.collection("course").document(course.title).delete();
+                    },
+                  ),
             ]
         ),
       ),
