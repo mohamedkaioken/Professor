@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:professor_app/models/courses.dart';
 import 'package:professor_app/screens/add_course.dart';
+import 'package:professor_app/screens/upload.dart';
 
 class CourseTile extends StatelessWidget {
 
@@ -38,6 +39,22 @@ class CourseTile extends StatelessWidget {
                       Firestore.instance.collection("course").document(course.title).delete();
                     },
                   ),
+              RaisedButton(
+                child: Row(
+                    children: <Widget>[
+                      Text('Upload'),
+                      Icon(
+                        Icons.file_upload,
+                        color: Colors.black,
+                      )
+                    ]
+                ),
+                color: Colors.pink,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+
+                },
+              ),
             ]
         ),
       ),
