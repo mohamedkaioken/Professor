@@ -51,7 +51,7 @@ class CourseTile extends StatelessWidget {
                 ),
                 color: Colors.pink,
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => UploadMultipleImageDemo()));
 
                 },
               ),
