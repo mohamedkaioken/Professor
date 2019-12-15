@@ -103,7 +103,7 @@ class _AddCourseState extends State<AddCourse> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () async {
-                      await DatabaseService().addCourseData(title,description,_majors,hours,maxStudents,0);
+                      await DatabaseService().addCourseData(title,description,_majors,hours,maxStudents,0,"gs://coursatk-7708a.appspot.com/FIRST STEP - PLUS ONE  COVER.PNG");
                       Navigator.pop(context);
                     } ,
                   ),

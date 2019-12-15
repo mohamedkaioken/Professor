@@ -4,7 +4,7 @@ import 'package:professor_app/models/courses.dart';
 class DatabaseService {
   final CollectionReference courseCollection = Firestore.instance.collection('course');
 
-  Future addCourseData(String title, String description, String majors, String hours, String maxStudents, int currentStudents) async{
+  Future addCourseData(String title, String description, String majors, String hours, String maxStudents, int currentStudents,String file) async{
     return await courseCollection.document(title).setData({
 
       'title': title,
@@ -13,6 +13,7 @@ class DatabaseService {
       'maxStudents': int.parse(maxStudents),
       'currentStudents': currentStudents,
       'hours': int.parse(hours),
+      'file' : file,
     });
   }
 
@@ -26,6 +27,7 @@ class DatabaseService {
         hours: doc.data['hours'] ?? 0,
         maxStudents: doc.data['maxStudents'] ?? 0,
         currentStudents: doc.data['currentStudents'] ?? 0,
+        file: doc.data['file'] ?? '',
 
       );
      }
