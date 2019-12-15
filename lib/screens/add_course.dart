@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:professor_app/services/database.dart';
+import 'package:professor_app/screens/upload.dart';
 
 class AddCourse extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class _AddCourseState extends State<AddCourse> {
   String hours;
   String maxStudents;
   String currentStudents;
+
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +105,7 @@ class _AddCourseState extends State<AddCourse> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () async {
-                      await DatabaseService().addCourseData(title,description,_majors,hours,maxStudents,0,"gs://coursatk-7708a.appspot.com/FIRST STEP - PLUS ONE  COVER.PNG");
+                      await DatabaseService().addCourseData(title,description,_majors,hours,maxStudents,0,"");
                       Navigator.pop(context);
                     } ,
                   ),
